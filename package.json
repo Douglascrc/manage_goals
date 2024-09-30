@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx --env-file .env watch src/http/server.ts"
+    "dev": "tsx watch --env-file .env src/http/server.ts",
+    "seed": "tsx --env-file .env src/db/seed.ts"
   },
   "keywords": [],
   "author": "Douglas Campos",
@@ -11,8 +12,10 @@
   "description": "",
   "dependencies": {
     "@paralleldrive/cuid2": "^2.2.2",
+    "dayjs": "^1.11.13",
     "drizzle-orm": "^0.33.0",
     "fastify": "^5.0.0",
+    "fastify-type-provider-zod": "^3.0.0",
     "postgres": "^3.4.4",
     "tsc": "^2.0.4",
     "zod": "^3.23.8"
@@ -23,6 +26,7 @@
     "@typescript-eslint/parser": "^8.7.0",
     "drizzle-kit": "^0.24.2",
     "eslint": "^9.11.1",
-    "globals": "^15.9.0"
+    "globals": "^15.9.0",
+    "tsx": "^4.19.1"
   }
 }
