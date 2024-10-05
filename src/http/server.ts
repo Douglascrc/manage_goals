@@ -4,6 +4,7 @@ import z from 'zod';
 import { serializerCompiler, validatorCompiler, type ZodTypeProvider } from 'fastify-type-provider-zod';
 import { getWeekPendingGoals } from '../features/get-week-pending-goals';
 import { createGoalsCompletions } from '../features/create-goal-completion';
+import { getWeekSummary } from '../features/get-week-summary';
 
 const server = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -15,6 +16,11 @@ server.get('/pending-goals', async () => {
   const sql = getWeekPendingGoals();
 
   return sql;  
+});
+
+server.get('/summary', async() => {
+  const summary = await getWeekSummary();
+  return summary;
 });
 
 server.post('/goals', {
